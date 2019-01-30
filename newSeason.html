@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/yeti.css">
+    <link rel="stylesheet" href="./styles/my.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="scripts/dynamicForm.js"></script>
+    <script src="scripts/forms.js"></script>
+
+    <title>GgsEDHLeague</title>
+</head>
+<body>
+<p><h1 align="center">Create a New Season</h1></p>
+
+<div class="container">
+    <div id="form-messages"></div>
+    <div class="results__display"></div>
+    <form id="season-form" action="http://league-tracker-rest-api-java-2.mybluemix.net/seasons">
+        <div class="form-group" id="season-name-group">
+            <label class="col-form-label" for="season-name">Season Name</label>
+            <input type="text" class="form-control" placeholder="Season Name" id="season-name" required="required" data-error="Season name is required." name="name">
+        </div>
+        <p><strong>Players</strong></p>
+        <div class="form-group" id="player-form-list">
+            <p><input type="text" class="form-control" placeholder="Player 1 (Ex: The Puppet Master)" required="required" data-error="Player name is required (minimum 3 players)." name="players"></p>
+            <p><input type="text" class="form-control" placeholder="Player 2 (Ex: Professor Pillow-fort)" required="required" data-error="Player name is required (minimum 3 players)." name="players"></p>
+            <p><input type="text" class="form-control" placeholder="Player 3 (Ex: Durdle Turtle)" required="required" data-error="Player name is required (minimum 3 players)." name="players"></p>
+        </div>
+
+        <button onclick="addPlayerForm();" style="float: left;" type="button" class="btn btn-primary">+</button>
+
+        <div class="top-buffer">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

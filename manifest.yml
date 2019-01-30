@@ -1,0 +1,5 @@
+---
+applications:
+- name: league-tracker-ui-2
+  buildpacks:
+    - https://github.com/cloudfoundry/staticfile-buildpack.git

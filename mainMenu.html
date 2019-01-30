@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./styles/yeti.css">
+
+    <title>EDH Brawler</title>
+</head>
+<body>
+<p><h1 align="center">Season Main Menu</h1></p>
+<div class="container">
+    <table id="player-standings" class="table table-hover">
+        <thead>
+        <tr>
+            <!--<th scope="col">#</th>-->
+            <th scope="col">Player</th>
+            <th scope="col">Points</th>
+            <!--<th scope="col">Other</th>-->
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<div class="container text-left">
+    <button type="button" class="btn btn-primary btn-lg" onclick="checkForMissingPlayers()">Start New Game</button>
+</div>
+
+<div class="modal" id="missing-players-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Game Preview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Any players missing from this game? Remove them here.</p>
+                <ul class="nav nav-pills" id="missing-player-list">
+                    <!--<li>-->
+                        <!--<a class="nav-link active" href="#">Active  <span class="close">&times;</span></a>-->
+                        <!--<span class="badge badge-primary">Primary  <span class="close">&times;</span></span>-->
+                        <!--<button type="button" class="btn btn-outline-primary">Primary   <span class="close">&times;</span></button>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="submitPlayerList();">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="scripts/objects/Player.js"></script>
+<script src="scripts/rest.js"></script>
+<script src="scripts/players.js"></script>
+<script src="scripts/mainMenu.js"></script>
+</body>
+</html>
