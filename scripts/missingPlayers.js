@@ -9,7 +9,7 @@ function createMissingPlayersTable() {
     console.log('Season ID = ' + seasonId);
 
     // Get all players in season
-    $.getJSON("http://localhost:8080/seasons/" + seasonId + "/players",
+    $.getJSON("http://league-tracker-rest-api-java-2.mybluemix.net/seasons/" + seasonId + "/players",
         function (json) {
             console.log('Create missing players table json = ' + json);
 

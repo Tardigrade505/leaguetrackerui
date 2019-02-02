@@ -23,7 +23,7 @@ function listPlayersAsCloseableTags() {
     console.log('Season ID = ' + seasonId);
 
     // Get all players in season
-    $.getJSON("http://localhost:8080/seasons/" + seasonId + "/players",
+    $.getJSON("http://league-tracker-rest-api-java-2.mybluemix.net/seasons/" + seasonId + "/players",
        function (json) {
            console.log('JSON returned = ' + json);
 
@@ -67,7 +67,7 @@ function submitPlayerList() {
     }
     var nextPageParams = playerListString + "seasonId=" + seasonId;
     window.location.href="game.html" + nextPageParams;
-//    var url = "http://localhost:8080/games" + queryParams;
+//    var url = "http://league-tracker-rest-api-java-2.mybluemix.net/games" + queryParams;
 //    console.log("Create game URL = " + url);
 //
 //
