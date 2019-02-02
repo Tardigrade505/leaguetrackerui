@@ -10,7 +10,7 @@ function makeTablesClickable() {
 }
 
 function parseSeasonListIntoTable() {
-    $.getJSON("http://league-tracker-rest-api-java-2.mybluemix.net/seasons",
+    $.getJSON("http://localhost:8080/seasons",
         function (json) {
             var tbody;
             tbody = $('<tbody>');

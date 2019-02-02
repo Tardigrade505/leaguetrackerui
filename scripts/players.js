@@ -9,7 +9,7 @@ function getPlayerStandings() {
     console.log('Season ID = ' + seasonId);
 
     // Get all players in season
-     $.getJSON("http://league-tracker-rest-api-java-2.mybluemix.net/seasons/" + seasonId + "/players",
+     $.getJSON("http://localhost:8080/seasons/" + seasonId + "/players",
         function (json) {
             console.log('JSON returned = ' + json);
 
@@ -50,5 +50,5 @@ function getPlayerStandings() {
 //    console.log('Season ID = ' + seasonId);
 //
 //    // Get all players in season
-//    $.getJSON("http://league-tracker-rest-api-java-2.mybluemix.net/seasons/" + seasonId + "/players", onCompleteFunction(json));
+//    $.getJSON("http://localhost:8080/seasons/" + seasonId + "/players", onCompleteFunction(json));
 //}

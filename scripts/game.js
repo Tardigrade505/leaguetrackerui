@@ -21,7 +21,7 @@ function fillPlayerHeaders() {
     const seasonId = urlParams.get('seasonId');
 
     // Get all players in season
-    $.getJSON("http://league-tracker-rest-api-java-2.mybluemix.net/seasons/" + seasonId + "/players",
+    $.getJSON("http://localhost:8080/seasons/" + seasonId + "/players",
         function (json) {
             console.log('JSON returned = ' + json);
             var noPoints = false;
@@ -103,7 +103,7 @@ function displayGame() {
     console.log('Season ID = ' + seasonId);
     console.log('Players = ' + players);
 
-    var url = "http://league-tracker-rest-api-java-2.mybluemix.net/games?" + urlParams.toString();
+    var url = "http://localhost:8080/games?" + urlParams.toString();
     console.log('Getting a new game from = ' + url);
 
     // Get a new game
