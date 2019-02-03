@@ -30,10 +30,9 @@ function getPlayerStandings() {
                     tr = $('<tr class="table-secondary">');
                 }
 
-//                tr.append('<th scope="row">' + (i+1) + '</th>');
                 tr.append('<td>' + json._embedded.playerList[i].name + '</td>');
                 tr.append('<td>' + json._embedded.playerList[i].totalPoints + '</td>');
-//                tr.append('<td>' + json._embedded.playerList[i].totalPoints + '</td>');
+                tr.append('<td>' + '$' + json._embedded.playerList[i].bonusMoney + '</td>');
                 tr.append("</tr>");
                 console.log(tr);
                 tbody.append(tr);
@@ -42,13 +41,3 @@ function getPlayerStandings() {
             $('#player-standings').append(tbody);
         });
 }
-
-//function getAllPlayers(onCompleteFunction, json) {
-//    // Get season ID
-//    const urlParams = new URLSearchParams(window.location.search);
-//    const seasonId = urlParams.get('seasonId');
-//    console.log('Season ID = ' + seasonId);
-//
-//    // Get all players in season
-//    $.getJSON("http://league-tracker-rest-api-java-2.mybluemix.net/seasons/" + seasonId + "/players", onCompleteFunction(json));
-//}
