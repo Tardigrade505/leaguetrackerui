@@ -1,6 +1,7 @@
 $(document).ready(function () {
     displayGame();
     fillPlayerHeaders();
+//    postAchievementsToSlack();
 });
 
 function nextPage() {
@@ -8,6 +9,47 @@ function nextPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const seasonId = urlParams.get('seasonId');
     window.location.href="recordResults.html?seasonId=" + seasonId;
+}
+
+/**
+* Posts the achievements to Slack
+*/
+function postAchievementsToSlack() {
+    // Retrieve stored game information
+    var gameJSONString = sessionStorage.getItem('currentGame');
+    var gameJSON = JSON.parse(gameJSONString);
+
+    var playerInFirst = JSON.parse(sessionStorage.getItem('playerInFirst'));
+    var playerInLast = JSON.parse(sessionStorage.getItem('playerInLast'));
+
+    var slackBody ='{"text": "*Cheevos!*", "attachments": [';
+    for (i = 0; i < gameJSON.achievements.length; i++) {
+        if (i == gameJSON.achievements.length - 1) {
+            var cheevoAttachment = '{"author_name": "Cheevo Bot", "author_icon": "http://a.slack-edge.com/7f18https://a.slack-edge.com/a8304/img/api/homepage_custom_integrations-2x.png", "image_url": "http://league-tracker-ui-2.mybluemix.net/images/' + gameJSON.achievements[i].name + '.png" }, { "title": "Eligible Players", "text": "' + playerInLast + '"}';
+            cheevoAttachment += ']}';
+        } else {
+            var cheevoAttachment = '{"author_name": "Cheevo Bot", "author_icon": "http://a.slack-edge.com/7f18https://a.slack-edge.com/a8304/img/api/homepage_custom_integrations-2x.png", "image_url": "http://league-tracker-ui-2.mybluemix.net/images/' + gameJSON.achievements[i].name + '.png" }, { "title": "Eligible Players", "text": "NOT ' + playerInFirst + '"}';
+            cheevoAttachment += ',';
+        }
+        slackBody += cheevoAttachment;
+    }
+    console.log('Slack body = ' + slackBody);
+
+    // Post the achievements to slack
+    $.ajax({
+        type: 'POST',
+//        beforeSend: function(request) {
+//            request.setRequestHeader("Content-type", "application/json");
+//        },
+        url: 'https://hooks.slack.com/services/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',
+//        data: '{ "text": "Cheevos!", "attachments": [{ "title": "For NOT Elliot", "fields": [{ "title": "Volume", "value": "1", "short": true }, { "title": "Issue", "value": "3", "short": true } ], "author_name": "Stanford S. Strickland", "author_icon": "http://a.slack-edge.com/7f18https://a.slack-edge.com/a8304/img/api/homepage_custom_integrations-2x.png", "image_url": "http://league-tracker-ui-2.mybluemix.net/images/yaBasic.png" }, { "title": "Synopsis", "text": "After @episod pushed exciting changes to a devious new branch back in Issue 1, Slackbot notifies @don about an unexpected deploy..." } ] }'
+        data: slackBody,
+    }).done(function(response) {
+        console.log('Successfully  POSTed results');
+//        window.location.href="mainMenu.html?seasonId=" + seasonId;
+    }).fail(function(data) {
+        console.log('Failed to POST results: ' + data);
+    });
 }
 
 /**
@@ -141,6 +183,8 @@ function displayGame() {
            image.append('</a>');
            image.append('</div>');
            $('#bonus-achievement-row').append(image);
+
+           postAchievementsToSlack();
 
             ////// DISPLAY ALL ACHIEVEMENTS BIG WITH BONUS ON NEXT LINE //////
 //            // Display achievement images (last achievement is bonus achievement)
