@@ -1,6 +1,6 @@
 $(document).ready(function () {
     displayGame();
-    fillPlayerHeaders();
+//    fillPlayerHeaders();
 //    postAchievementsToSlack();
 });
 
@@ -133,6 +133,8 @@ function fillPlayerHeaders() {
                 playerInLastHeader.append('</h3>');
                 $('#player-in-last-header').append(playerInLastHeader);
             }
+
+            postAchievementsToSlack();
     });
 }
 
@@ -183,27 +185,7 @@ function displayGame() {
            image.append('</a>');
            image.append('</div>');
            $('#bonus-achievement-row').append(image);
-
-           postAchievementsToSlack();
-
-            ////// DISPLAY ALL ACHIEVEMENTS BIG WITH BONUS ON NEXT LINE //////
-//            // Display achievement images (last achievement is bonus achievement)
-//            for (i = 0; i < json.achievements.length-1; i++) {
-//                var image = $('<div class="col-lg-4 col-md-4 col-xs-4 thumb">');
-//                image.append('<a class="thumbnail" href="#">');
-//                image.append('<image class="img-fluid" src="images/' + json.achievements[i].name + '.png">');
-//                image.append('</a>');
-//                image.append('</div>');
-//                $('#achievements-row').append(image);
-//            }
-//
-//            // Display the bonus achievement image
-//            var numberOfImages = json.achievements.length;
-//            var image = $('<div class="col-lg-4 col-md-4 col-xs-4 thumb">');
-//            image.append('<a class="thumbnail" href="#">');
-//            image.append('<image class="img-fluid" src="images/' + json.achievements[numberOfImages-1].name + '.png">');
-//            image.append('</a>');
-//            image.append('</div>');
-//            $('#bonus-achievement-row').append(image);
        });
+
+       fillPlayerHeaders();
 }
