@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./styles/yeti.css">
+    <link rel="stylesheet" href="styles/yeti.css">
+    <link rel="stylesheet" href="styles/my.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap2.css">
 
     <title>EDH Brawler</title>
 </head>
@@ -15,27 +17,23 @@
 <br>
 
 <div class="container">
-    <div class="container" id="winners-form-container"></div>
-    <br>
-    <div class="container">
-        <div class="row" id="achievement-winners-form-row"></div>
-    </div>
-    <!--<form id="test-form">-->
-        <!--<div class="form-group">-->
-            <!--<select class="form-control test-foo" id="test-select"><option>Elliot</option><option>Peter</option><option>Ryan</option></select>-->
-        <!--</div>-->
-    <!--</form>-->
-    <div class="text-center">
-        <button type="submit" class="btn btn-primary btn-lg" onclick="submitGameResults();">Record</button>
-    </div>
-    <form id="hidden-form" action="http://league-tracker-rest-api-java-2.mybluemix.net/games/results"></form>
+<ul class="nav nav-tabs" id="tab-headers"></ul>
 </div>
+
+<div class="tab-content-border">
+<div id="myTabContent" class="tab-content container"></div>
+</div>
+<div class="text-center">
+    <button type="submit" class="btn btn-primary btn-lg" onclick="submitGameResults();">Record</button>
+</div>
+<form id="hidden-form" action="http://league-tracker-rest-api-java-2.mybluemix.net/games/results"></form>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script type="text/javascript" src="selectize.js/dist/js/standalone/selectize.js"></script>
 <script src="scripts/recordResults.js"></script>
 </body>
 </html>
